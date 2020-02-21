@@ -1,0 +1,53 @@
+<html lang="nl">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+        <title>DeelHetMee.social | Grappige mededelingen</title>
+
+        <meta property="og:title" content="DeelHetMee.social | Grappige mededelingen" />
+        <meta property="og:description" 
+            content="Maak grappige mededelingen met de geluiden van NS."/>
+        <meta property="og:image" content="/static/" />
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/static/bootstrap.min.css">
+        <link rel="stylesheet" href="/static/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="/static/animate.css">
+        <link rel="stylesheet" href="/static/main.css">
+        
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="box animated slideInDown">
+                <h1>DeelHetMee.social</h1>
+                <h4>DE site om een mededeling te doen.</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="box animated slideInLeft">
+                        <h2>Hoe werkt het?</h2>
+                        <p>Het werkt zo. Je spreekt een bericht in. Dan zet de website er automatisch een NS geluidje onder. Zo wordt jouw spraakbericht nog grappiger!</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="box animated slideInRight">
+                        <h2>Opnemen</h2>
+                        <button class="btn btn-info" onclick="startRecording(this)">Begin opname</button>
+                        <button class="btn btn-secondary" disabled onclick="stopRecording(this)">Stop opname</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="/static/bootstrap.min.js"></script>
+        <script src="/static/recorder.js"></script>
+        <script src="/static/main.js"></script>
+    </body>
+</html>

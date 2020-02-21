@@ -1,0 +1,8 @@
+.box {
+    background-color: white;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    margin-right: 2vh;
+    padding: 2vh;
+}
