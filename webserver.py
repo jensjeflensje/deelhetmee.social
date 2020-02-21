@@ -10,6 +10,12 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+
+# Share page
+@app.route("/share/<int:sound_id>")
+def share_page(sound_id):
+    return render_template("share.html", sound_id=sound_id)
+
 # API route
 @app.route("/create", methods=["POST"])
 def api_create():

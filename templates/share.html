@@ -29,24 +29,19 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="box animated slideInLeft">
-                        <h2>Hoe werkt het?</h2>
-                        <p>Het werkt zo. Je spreekt een bericht in. Dan zet de website er automatisch een NS geluidje onder. Zo wordt jouw spraakbericht nog grappiger!</p>
+                        <h2>Mededeling {{ sound_id }}</h2>
+                        <audio controls>
+                            <source src="/static/sounds/{{ sound_id }}.mp3" type="audio/mp3">
+                        </audio>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="box animated slideInRight">
-                        <h2>Opnemen</h2>
-                        <button class="btn btn-info" onclick="startRecording(this)">Begin opname</button>
-                        <button class="btn btn-secondary" disabled onclick="stopRecording(this)">Stop opname</button>
+                        <h2>Zelf opnemen?</h2>
+                        <p>Ga snel naar <a href="/">DeelHetMee.social</a></p>
                     </div>
                 </div>
             </div>
         </div>
-
-        
-
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="/static/recorder.js"></script>
-        <script src="/static/main.js"></script>
     </body>
 </html>
