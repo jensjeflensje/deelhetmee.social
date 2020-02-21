@@ -67,6 +67,6 @@ function share(sound_id) {
           url: `/static/sounds/${sound_id}.mp3`
         })
     } else {
-        window.open(`/static/sounds/${sound_id}.mp3`)
+        window.open(`/share/${sound_id}`)
     }
 }
