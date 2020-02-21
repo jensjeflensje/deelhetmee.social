@@ -64,7 +64,7 @@ function share(sound_id) {
         navigator.share({
           title: 'DeelHetMee.social',
           text: 'Bekijk deze nieuwe mededeling!',
-          url: `/static/sounds/${sound_id}.mp3`
+          url: `/share/${sound_id}`
         })
     } else {
         window.open(`/share/${sound_id}`)
