@@ -7,15 +7,15 @@ function startRecording(button) {
         var audioContext = new AudioContext;
         const input = audioContext.createMediaStreamSource(stream);
         rec = new Recorder(input)
+        rec.record();
+        button.disabled = true;
+        button.nextElementSibling.disabled = false;
+        console.log('Recording...');
     });
-    rec && rec.record();
-    button.disabled = true;
-    button.nextElementSibling.disabled = false;
-    console.log('Recording...');
 }
 
 function stopRecording(button) {
-    rec && rec.stop();
+    rec.stop();
     button.disabled = true;
     button.previousElementSibling.disabled = false;
     console.log('Stopped recording.');
