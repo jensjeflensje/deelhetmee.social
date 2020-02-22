@@ -3,11 +3,11 @@ var rec = null;
 navigator.mediaDevices.getUserMedia({ audio: true}).then(function(stream) {
     var AudioContext = window.AudioContext || window.webkitAudioContext;
     var audioContext = new AudioContext;
-    const input = audioContext.createMediaStreamSource(stream);
-    rec = new Recorder(input)
 });
 
 function startRecording(button) {
+    const input = audioContext.createMediaStreamSource(stream);
+    rec = new Recorder(input)
     rec && rec.record();
     button.disabled = true;
     button.nextElementSibling.disabled = false;
@@ -22,7 +22,7 @@ function stopRecording(button) {
     
     sendFile();
     
-    rec.clear();
+    //rec.clear();
   }
 
 function sendFile() {
