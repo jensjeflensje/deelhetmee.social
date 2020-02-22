@@ -34,39 +34,27 @@ function sendFile() {
         }).then(async (res) => {
             let fileName = await res.text();
             let shareButton = document.createElement('div')
-            shareButton.innerHTML = `<button class='btn btn-primary' onclick='share(${fileName})'>Delen!</button>`
+            shareButton.innerHTML = `<button class='btn btn-lg btn-primary' onclick='share(${fileName})'>Delen!</button>`
             swal({
                 title: 'Gelukt!',
-                text: "Klik op de download knop om je bestand te downloaden",
+                text: "Het is gelukt! Je kan het bericht gelijk delen, of naar de pagina gaan.",
                 content: shareButton,
                 type: 'success',
                 buttons: {
                     cancel: "Sluiten",
-                    download: {
-                      text: "Downloaden",
-                      value: "download",
+                    watch: {
+                      text: "Bekijken",
+                      value: "watch",
                     },
                   },
             }).then(async (result) => {
                 switch (result) {
-                    case "download":
-                        window.open(`/static/sounds/${fileName}.mp3`);
+                    case "watch":
+                        window.open(`/share/${fileName}`);
                     default:
                         break;
                 }
             });
         });
     });
-}
-
-function share(sound_id) {
-    if(navigator.share) {
-        navigator.share({
-          title: 'DeelHetMee.social',
-          text: 'Bekijk deze nieuwe mededeling!',
-          url: `/share/${sound_id}`
-        })
-    } else {
-        window.open(`/share/${sound_id}`)
-    }
 }
