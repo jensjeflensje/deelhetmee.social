@@ -28,7 +28,9 @@ function stopRecording(button) {
 function sendFile() {
     rec && rec.exportWAV(function(blob) {
         console.log(blob);
-        fetch("/create", {
+        var prefix_elem = document.getElementById("prefix_sound");
+        var prefix_sound = prefix_elem.options[prefix_elem.selectedIndex].value;
+        fetch(`/create/${prefix_sound}`, {
             method: "post",
             body: blob
         }).then(async (res) => {

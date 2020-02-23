@@ -8,7 +8,7 @@
 
         <meta property="og:title" content="DeelHetMee.social | Grappige mededelingen" />
         <meta property="og:description" 
-            content="Maak grappige mededelingen met de geluiden van NS."/>
+            content="Maak grappige mededelingen met de geluiden van NS en NOS."/>
         <meta property="og:image" content="/static/" />
 
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -47,8 +47,20 @@
                 <div class="col-md-6">
                     <div class="box animated slideInRight">
                         <h2>Opnemen</h2>
-                        <button class="btn btn-info" onclick="startRecording(this)">Begin opname</button>
-                        <button class="btn btn-secondary" disabled onclick="stopRecording(this)">Stop opname</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label for="prefix_sound">Geluidje</label>
+                                <br>
+                                <select id="prefix_sound">
+                                    <option value="ns">NS</option>
+                                    <option value="nos">NOS journaal</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-info" onclick="startRecording(this)">Begin opname</button>
+                                <button class="btn btn-secondary" disabled onclick="stopRecording(this)">Stop opname</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

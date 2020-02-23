@@ -16,15 +16,26 @@ def index():
 def share_page(sound_id):
     return render_template("share.html", sound_id=sound_id)
 
-# API route
-@app.route("/create", methods=["POST"])
-def api_create():
+# API routes
+@app.route("/create/ns", methods=["POST"])
+def api_create_ns():
     file_name = random.randint(1, 1000000)
     temp_path = f"./temp_sounds/{file_name}.wav"
     f = open(temp_path, "wb")
     f.write(request.data)
     f.close()
     sound = audio_helper.create_sound(temp_path)
+    sound.export(f"./static/sounds/{file_name}.mp3", format="mp3")
+    return str(file_name)
+
+@app.route("/create/nos", methods=["POST"])
+def api_create_nos():
+    file_name = random.randint(1, 1000000)
+    temp_path = f"./temp_sounds/{file_name}.wav"
+    f = open(temp_path, "wb")
+    f.write(request.data)
+    f.close()
+    sound = audio_helper.create_sound(temp_path, prefix="sounds/nos_prefix.wav")
     sound.export(f"./static/sounds/{file_name}.mp3", format="mp3")
     return str(file_name)
 
