@@ -5,6 +5,12 @@ Maak op [deze pagina](https://www.deelhetmee.social "Website") nu je eigen gelui
 
 ## Credits
 Gemaakt door: Jens de Ruiter
+
+
 Website Jens: https://www.jederu.nl
+
+
 Github Jens: https://www.github.com/jensjeflensje
+
+
 Discord Jederu: https://discord.gg/fRsbUR3
