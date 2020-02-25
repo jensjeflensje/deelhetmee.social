@@ -13,4 +13,4 @@ Website Jens: https://www.jederu.nl
 Github Jens: https://www.github.com/jensjeflensje
 
 
-Discord Jederu: https://discord.gg/fRsbUR3
+Discord Jederu: https://discord.gg/Su5mGzY
