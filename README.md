@@ -1,7 +1,7 @@
 # deelhetmee.social
 Maak grappige mededelingen met verschillende intro's (NS, NOS & Netflix)
 
-Maak op [deze pagina](https://www.deelhetmee.social "Website") nu je eigen geluiden!
+Maak op [deze pagina](https://deelhetmee.social) nu je eigen mededelingen met grappige geluiden!
 
 ## Credits
 Gemaakt door: Jens de Ruiter
