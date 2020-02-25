@@ -1,3 +1,4 @@
-/static/sounds/
-/temp_sounds/
+/static/sounds/*
+/temp_sounds/*
 /__pycache__/
+/.vscode/
