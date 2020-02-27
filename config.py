@@ -6,7 +6,7 @@ SERVERS = [
     {
         "name": "MAIN-01",
         "address": "main-01.deelhetmee.social",
-        "port": 8282,
+        "port": 443,
         "protocol": "https"
     },
 ]
