@@ -11,5 +11,5 @@ def get_server():
 
 def get_prefixes():
     server = get_server()
-    prefixes = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
+    prefixes = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes", verify=False).json()
     return prefixes
