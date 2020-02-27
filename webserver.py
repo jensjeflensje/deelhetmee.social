@@ -4,7 +4,9 @@ import server_helper
 
 app = Flask(__name__)
 
-prefixes = server_helper.get_prefixes()
+servers = server_helper.get_online_servers()
+
+prefixes = server_helper.get_prefixes(servers)
 prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
 
 # Home
@@ -20,7 +22,7 @@ def share_page(sound_id):
 # API routes
 @app.route("/getserver")
 def api_getserver():
-    server = server_helper.get_server()
+    server = server_helper.get_server(servers)
     return jsonify(server)
 
 @app.route("/savesound", methods=["POST"])
