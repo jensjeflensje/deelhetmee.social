@@ -1,16 +1,13 @@
-from flask import Flask, request, render_template, send_from_directory
+from flask import Flask, request, render_template, send_from_directory, jsonify
 import config
-import audio_helper
-import os
-import str_helper
+import server_helper
 
 app = Flask(__name__)
 
 # Home
 @app.route("/")
 def index():
-    return render_template("index.html")
-
+    return render_template("index.html", prefixes=prefix_list)
 
 # Share page
 @app.route("/share/<sound_id>")
@@ -18,22 +15,23 @@ def share_page(sound_id):
     return render_template("share.html", sound_id=sound_id)
 
 # API routes
-@app.route("/create/<prefix>", methods=["POST"])
-def api_create(prefix):
-    not_new = True
-    while not_new:
-        file_name = str_helper.random_string()
-        temp_path = f"./temp_sounds/{file_name}.wav"
-        if not os.path.exists(f"./static/sounds/{file_name}.mp3"):
-            not_new = False
-    f = open(temp_path, "wb")
-    f.write(request.data)
-    f.close()
-    sound = audio_helper.create_sound(temp_path, prefix=f"sounds/{prefix}_prefix.wav")
-    sound.export(f"./static/sounds/{file_name}.mp3", format="mp3")
-    os.remove(temp_path)
-    return str(file_name)
+@app.route("/getserver")
+def api_getserver():
+    server = server_helper.get_server()
+    return jsonify(server)
 
+@app.route("/savesound", methods=["POST"])
+def api_savesound():
+    if request.args.get("token") == config.TOKEN:
+        sound_file = request.files.get("sound")
+        sound_name = request.args.get("name")
+        if sound_file:
+            sound_file.save(f"./static/sounds/{sound_name}.mp3")
+            return "success"
+        else:
+            return "no sound file"
+    else:
+        return "invalid token"
 
 if config.DEBUG:
     # Static Files
@@ -42,4 +40,6 @@ if config.DEBUG:
         return send_from_directory('static', path)
 
 if __name__ == "__main__":
+    prefixes = server_helper.get_prefixes()
+    prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
     app.run(host="0.0.0.0", debug=config.DEBUG)

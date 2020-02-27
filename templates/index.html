@@ -41,7 +41,7 @@
                 <div class="col-md-6">
                     <div class="box animated slideInLeft">
                         <h2>Hoe werkt het?</h2>
-                        <p>Het werkt zo. Je spreekt een bericht in. Dan zet de website er automatisch een NS of NOS geluidje voor. Zo wordt jouw spraakbericht nog grappiger!</p>
+                        <p>Het werkt zo. Je spreekt een bericht in. Dan zet de website er automatisch een geluidje voor. Zo wordt jouw spraakbericht nog grappiger!</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -52,10 +52,9 @@
                                 <label for="prefix_sound">Geluidje</label>
                                 <br>
                                 <select id="prefix_sound">
-                                    <option value="ns">NS</option>
-                                    <option value="nos">NOS journaal</option>
-                                    <option value="netflix">Netflix</option>
-                                    <option value="ph">PornHub</option>
+                                    {% for prefix in prefixes %}
+                                    <option value="{{ prefix['prefix']}}">{{ prefix['name'] }}</option>
+                                    {% endfor %}
                                 </select>
                             </div>
                             <div class="col-md-6">

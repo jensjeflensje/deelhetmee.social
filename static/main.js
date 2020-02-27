@@ -26,14 +26,25 @@ function stopRecording(button) {
   }
 
 function sendFile() {
-    rec && rec.exportWAV(function(blob) {
+    rec && rec.exportWAV(async function(blob) {
         console.log(blob);
+        let server = null;
+        await fetch(`/getserver`, {
+            method: "get",
+        })
+        .then((response) => {
+            return response.json();
+        }).then((res) => {
+            server = res;
+        });
+        console.log(`Sending to server: ${server.name}`);
         var prefix_elem = document.getElementById("prefix_sound");
         var prefix_sound = prefix_elem.options[prefix_elem.selectedIndex].value;
-        fetch(`/create/${prefix_sound}`, {
+        fetch(`${server.protocol}://${server.address}:${server.port}/create/${prefix_sound}`, {
             method: "post",
             body: blob
         }).then(async (res) => {
+            console.log(`Recieved response from server: ${server.name}`)
             let fileName = await res.text();
             let shareButton = document.createElement('div')
             shareButton.innerHTML = `<button class='btn btn-lg btn-primary' onclick='share("${fileName}")'>Delen!</button>`
