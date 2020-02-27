@@ -54,7 +54,8 @@ if config.DEBUG:
     def send_js(path):
         return send_from_directory('static', path)
 
+server_refresh_thread = Thread(target=refresh_servers)
+server_refresh_thread.start()
+
 if __name__ == "__main__":
-    server_refresh_thread = Thread(target=refresh_servers)
-    server_refresh_thread.start()
     app.run(host="0.0.0.0", debug=config.DEBUG)
