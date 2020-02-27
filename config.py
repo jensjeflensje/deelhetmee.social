@@ -5,7 +5,7 @@ TOKEN = "jfiudahfopeaihfaionfa9difuohaeiofajno"
 SERVERS = [
     {
         "name": "MAIN-01",
-        "address": "116.203.62.244",
+        "address": "main-01.deelhetmee.social",
         "port": 8282,
         "protocol": "https"
     },
