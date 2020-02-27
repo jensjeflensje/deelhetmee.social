@@ -9,6 +9,12 @@ SERVERS = [
         "port": 443,
         "protocol": "https"
     },
+    {
+        "name": "MAIN-02",
+        "address": "main-02.deelhetmee.social",
+        "port": 443,
+        "protocol": "https"
+    },
 ]
 
 PREFIX_NAMES = {
