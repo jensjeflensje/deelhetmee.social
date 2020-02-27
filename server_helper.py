@@ -14,8 +14,8 @@ def get_online_servers():
         try:
             requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
             working_servers.append(server)
-        except Exception:
-            pass
+        except Exception as e:
+            print(str(e))
     return working_servers
 
 def get_prefixes(servers):
