@@ -13,7 +13,7 @@ def get_online_servers():
     for server in config.SERVERS:
         try:
             r = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes")
-            print(r)
+            print(r, flush=True)
             working_servers.append(server)
         except Exception as e:
             print(str(e))
