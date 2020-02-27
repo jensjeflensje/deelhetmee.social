@@ -12,7 +12,8 @@ def get_online_servers():
     reload(config)
     for server in config.SERVERS:
         try:
-            requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
+            r = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes")
+            print(r)
             working_servers.append(server)
         except Exception as e:
             print(str(e))
