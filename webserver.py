@@ -7,6 +7,7 @@ app = Flask(__name__)
 # Home
 @app.route("/")
 def index():
+    global prefix_list
     return render_template("index.html", prefixes=prefix_list)
 
 # Share page
