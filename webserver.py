@@ -17,6 +17,7 @@ def refresh_servers():
         print(servers)
         prefixes = server_helper.get_prefixes(servers)
         prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
+        prefix_list.sort()
         time.sleep(30)
 
 # Home
