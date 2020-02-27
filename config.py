@@ -7,7 +7,7 @@ SERVERS = [
         "name": "MAIN-01",
         "address": "116.203.62.244",
         "port": 8282,
-        "protocol": "http"
+        "protocol": "https"
     },
 ]
 
