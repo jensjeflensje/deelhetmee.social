@@ -4,10 +4,12 @@ import server_helper
 
 app = Flask(__name__)
 
+prefixes = server_helper.get_prefixes()
+prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
+
 # Home
 @app.route("/")
 def index():
-    global prefix_list
     return render_template("index.html", prefixes=prefix_list)
 
 # Share page
@@ -41,6 +43,4 @@ if config.DEBUG:
         return send_from_directory('static', path)
 
 if __name__ == "__main__":
-    prefixes = server_helper.get_prefixes()
-    prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
     app.run(host="0.0.0.0", debug=config.DEBUG)
