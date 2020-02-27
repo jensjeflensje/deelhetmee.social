@@ -36,7 +36,7 @@ function sendFile() {
         }).then(async (res) => {
             let fileName = await res.text();
             let shareButton = document.createElement('div')
-            shareButton.innerHTML = `<button class='btn btn-lg btn-primary' onclick='share(${fileName})'>Delen!</button>`
+            shareButton.innerHTML = `<button class='btn btn-lg btn-primary' onclick='share("${fileName}")'>Delen!</button>`
             swal({
                 title: 'Gelukt!',
                 text: "Het is gelukt! Je kan het bericht gelijk delen, of naar de pagina gaan.",
