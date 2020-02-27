@@ -4,12 +4,12 @@ import random
 import requests
 
 def get_server(servers):
-    reload(config)
     server = servers[random.randint(0, len(servers) - 1)]
     return server
 
 def get_online_servers():
     working_servers = []
+    reload(config)
     for server in config.SERVERS:
         try:
             requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
