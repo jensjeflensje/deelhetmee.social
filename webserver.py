@@ -1,13 +1,22 @@
 from flask import Flask, request, render_template, send_from_directory, jsonify
 import config
 import server_helper
+from threading import Thread
+import time
 
 app = Flask(__name__)
 
-servers = server_helper.get_online_servers()
+servers  = []
+prefix_list = []
 
-prefixes = server_helper.get_prefixes(servers)
-prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
+def refresh_servers():
+    global servers
+    global prefix_list
+    while True:
+        servers = server_helper.get_online_servers()
+        prefixes = server_helper.get_prefixes(servers)
+        prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
+        time.sleep(30)
 
 # Home
 @app.route("/")
@@ -45,4 +54,6 @@ if config.DEBUG:
         return send_from_directory('static', path)
 
 if __name__ == "__main__":
+    server_refresh_thread = Thread(target=refresh_servers)
+    server_refresh_thread.start()
     app.run(host="0.0.0.0", debug=config.DEBUG)

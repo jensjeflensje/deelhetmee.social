@@ -12,7 +12,7 @@ def get_online_servers():
     working_servers = []
     for server in config.SERVERS:
         try:
-            requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes", verify=False).json()
+            requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
             working_servers.append(server)
         except Exception:
             pass
@@ -20,5 +20,5 @@ def get_online_servers():
 
 def get_prefixes(servers):
     server = get_server(servers)
-    prefixes = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes", verify=False).json()
+    prefixes = requests.get(f"{server['protocol']}://{server['address']}:{server['port']}/prefixes").json()
     return prefixes
