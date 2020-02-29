@@ -21,5 +21,6 @@ PREFIX_NAMES = {
     "netflix": "Netflix",
     "nos": "NOS",
     "ns": "NS",
-    "ph": "PornHub"
+    "ph": "PornHub",
+    "win_xp": "Windows XP"
 }
