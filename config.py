@@ -22,5 +22,6 @@ PREFIX_NAMES = {
     "nos": "NOS",
     "ns": "NS",
     "ph": "PornHub",
-    "win_xp": "Windows XP"
+    "win_xp": "Windows XP",
+    "pokemon": "Who's that pokemon?"
 }
