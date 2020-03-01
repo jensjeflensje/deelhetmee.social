@@ -17,13 +17,14 @@ def refresh_servers():
         print(servers)
         prefixes = server_helper.get_prefixes(servers)
         prefix_list = [{"name": config.PREFIX_NAMES[prefix], "prefix": prefix} for prefix in prefixes]
-        prefix_list.sort()
+        prefix_list.sort(key=lambda x: x["name"])
         time.sleep(30)
 
 # Home
 @app.route("/")
 def index():
-    return render_template("index.html", prefixes=prefix_list)
+    server = server_helper.get_server(servers)
+    return render_template("index.html", prefixes=prefix_list, server=server)
 
 # Share page
 @app.route("/share/<sound_id>")
