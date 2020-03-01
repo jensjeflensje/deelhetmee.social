@@ -39,7 +39,7 @@ def api_getserver():
 
 @app.route("/prefixes")
 def api_prefixes():
-    return jsonify(prefixes)
+    return jsonify(prefix_list)
 
 @app.route("/savesound", methods=["POST"])
 def api_savesound():
