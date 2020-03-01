@@ -37,6 +37,10 @@ def api_getserver():
     server = server_helper.get_server(servers)
     return jsonify(server)
 
+@app.route("/prefixes")
+def api_prefixes():
+    return jsonify(prefixes)
+
 @app.route("/savesound", methods=["POST"])
 def api_savesound():
     if request.args.get("token") == config.TOKEN:
