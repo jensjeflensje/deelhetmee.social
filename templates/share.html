@@ -59,6 +59,7 @@
                     <div class="box animated slideInLeft">
                         <h2>Mededeling {{ sound_id }}</h2>
                         <button id="share-btn" class='btn btn-lg btn-primary' onclick='share({{ sound_id }})'>Delen!</button>
+                        <a target="_blank" href="/static/sounds/{{ sound_id }}.mp3" class="btn btn-info">Downloaden</a>
                         <audio controls>
                             <source src="/static/sounds/{{ sound_id }}.mp3" type="audio/mp3">
                         </audio>
