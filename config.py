@@ -25,5 +25,6 @@ PREFIX_NAMES = {
     "win_xp": "Windows XP",
     "pokemon": "Who's that pokemon?",
     "linus": "LinusTechTips",
-    "hema": "Hema"
+    "hema": "Hema",
+    "win_error": "Windows error"
 }
