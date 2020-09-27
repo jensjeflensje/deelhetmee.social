@@ -25,6 +25,15 @@ function stopRecording(button) {
     //rec.clear();
   }
 
+
+function removeRecording(button) {
+    rec.stop();
+    rec = null;
+    button.disabled = true;
+    button.previousElementSibling.disabled = false;
+    console.log('Discarded recording.')
+}
+
 function sendFile() {
     rec && rec.exportWAV(function(blob) {
         console.log(blob);
